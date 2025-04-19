@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>ألبوم الصور</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: url('https://images.unsplash.com/photo-1542281286-9e0a16bb7366?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+      color: white;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #a0e9ff;
+    }
+
+    .album-bar {
+      display: flex;
+      justify-content: space-around;
+      padding: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .album {
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .album div {
+      width: 40px;
+      height: 40px;
+      border: 2px solid white;
+      border-radius: 50%;
+      margin: 0 auto 10px;
+    }
+
+    .album p {
+      font-size: 0.9rem;
+    }
+
+    .slideshow-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 40px 20px;
+      margin: 20px auto;
+      max-width: 900px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .arrow {
+      font-size: 2rem;
+      cursor: pointer;
+      padding: 0 20px;
+    }
+
+    .slide img {
+      width: 100%;
+      max-height: 450px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+
+    .thumbnails {
+      display: none;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin: 20px auto;
+      max-width: 800px;
+      z-index: 1;
+      position: relative;
+    }
+
+    .thumbnails img {
+      width: 120px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .thumbnails img:hover {
+      transform: scale(1.05);
+    }
+
+    .back-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #00bcd4;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 1rem;
+      z-index: 1000;
+    }
+
+    .back-btn:hover {
+      background: #0097a7;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="overlay"></div>
+
+  <header>
+    <h1>Images Albums</h1>
+  </header>
+
+  <div class="album-bar">
+    <div class="album" onclick="selectAlbum('topic1')"><div></div><p>Topic 1</p></div>
+    <div class="album" onclick="selectAlbum('topic2')"><div></div><p>Topic 2</p></div>
+    <div class="album" onclick="selectAlbum('topic3')"><div></div><p>Topic 3</p></div>
+    <div class="album" onclick="selectAlbum('topic4')"><div></div><p>Topic 4</p></div>
+    <div class="album" onclick="selectAlbum('topic5')"><div></div><p>Topic 5</p></div>
+  </div>
+
+  <div class="slideshow-container">
+    <div class="arrow" onclick="prevSlide()">&#8592;</div>
+    <div class="slide"><img id="slide-image" src="https://picsum.photos/id/1015/800/450" alt=""></div>
+    <div class="arrow" onclick="nextSlide()">&#8594;</div>
+  </div>
+
+
+
+  <div class="album-bar">
+    <div class="album" onclick="selectAlbum('topic1')"><div></div><p>Topic 1</p></div>
+    <div class="album" onclick="selectAlbum('topic2')"><div></div><p>Topic 2</p></div>
+    <div class="album" onclick="selectAlbum('topic3')"><div></div><p>Topic 3</p></div>
+    <div class="album" onclick="selectAlbum('topic4')"><div></div><p>Topic 4</p></div>
+    <div class="album" onclick="selectAlbum('topic5')"><div></div><p>Topic 5</p></div>
+  </div>
+
+
+  <div class="thumbnails" id="thumbnail-container"></div>
+
+  <a class="back-btn" href="index.html">العودة إلى البرنامج</a>
+
+  <script>
+   const albums = {
+  topic12: [
+    'C:/laibarary/ali/seminar/image/ali/آلية الحفر.jpg',
+    'C:/laibarary/ali/seminar/image/ali/استشعار المياه عن بعد.jpg',
+    'C:/laibarary/ali/seminar/image/ali/استشعار للبحث على المياه.jpg',
+    'C:/laibarary/ali/seminar/image/ali/بيئة بحرية.jpg',
+    'C:/laibarary/ali/seminar/image/ali/بيئة جبلية .jpg',
+    'C:/laibarary/ali/seminar/image/ali/بيئية صحراوية .jpg'
+  ],
+  topic2: [
+    'C:/laibarary/ali/seminar/image/ali/ماكينه حفر افقي موجه .jpg',
+    'C:/laibarary/ali/seminar/image/ali/مسح زلزالي بالكويت.jpg',
+    'C:/laibarary/ali/seminar/image/ali/وادي الرمه بالمملكه السعوديه.jpg',
+    'C:/laibarary/ali/seminar/image/Amira/IMG-20250418-WA0015.jpg',
+    'C:/laibarary/ali/seminar/image/Amira/IMG-20250418-WA0016.jpg',
+    'C:/laibarary/ali/seminar/image/Amira/IMG-20250418-WA0017.jpg'
+  ],
+  topic3: [
+    'C:/laibarary/ali/seminar/image/Amira/IMG-20250418-WA0018.jpg',
+    'C:/laibarary/ali/seminar/image/fatima/IMG-20250418-WA0006.jpg',
+    'C:/laibarary/ali/seminar/image/fatima/IMG-20250418-WA0008.jpg',
+    'C:/laibarary/ali/seminar/image/fatima/IMG-20250418-WA0009.jpg',
+    'C:/laibarary/ali/seminar/image/fatima/IMG-20250418-WA0010.jpg',
+    'C:/laibarary/ali/seminar/image/lmia/IMG-20250418-WA0032.jpg'
+  ],
+  topic4: [
+    'C:/laibarary/ali/seminar/image/lmia/IMG-20250418-WA0033.jpg',
+    'C:/laibarary/ali/seminar/image/lmia/IMG-20250418-WA0034.jpg',
+    'C:/laibarary/ali/seminar/image/mlaz/IMG-20250419-WA0007.jpg',
+    'C:/laibarary/ali/seminar/image/mlaz/IMG-20250419-WA0008.jpg',
+    'C:/laibarary/ali/seminar/image/mlaz/IMG-20250419-WA0009.jpg',
+    'C:/laibarary/ali/seminar/image/rzaz/IMG-20250418-WA0024.jpg'
+  ],
+  topic5: [
+    'C:/laibarary/ali/seminar/image/rzaz/IMG-20250418-WA0025.jpg',
+    'C:/laibarary/ali/seminar/image/rzaz/IMG-20250418-WA0026.jpg',
+    'C:/laibarary/ali/seminar/image/rzaz/IMG-20250418-WA0027.jpg',
+    'C:/laibarary/ali/seminar/image/rzaz/IMG-20250418-WA0028.jpg',
+    'C:/laibarary/ali/seminar/image/waad/IMG-20250419-WA0002.jpg',
+    'C:/laibarary/ali/seminar/image/waad/IMG-20250419-WA0003.jpg'
+  ]
+    };
+
+    let currentImages = [
+      'C:/laibarary/ali/seminar/image/ali/مسح زلزالي بالكويت.jpg',
+      'C:/laibarary/ali/seminar/image/rzaz/IMG-20250418-WA0026.jpg',
+      'C:/laibarary/ali/seminar/image/fatima/IMG-20250418-WA0009.jpg',
+      'C:/laibarary/ali/seminar/image/ali/ماكينه حفر افقي موجه .jpg',
+      'C:/laibarary/ali/seminar/image/ali/وادي الرمه بالمملكه السعوديه.jpg',
+      'C:/laibarary/ali/seminar/image/ali/بيئة جبلية .jpg'
+    ];
+    let currentIndex = 0;
+    let slideInterval = null;
+
+    const slideImage = document.getElementById('slide-image');
+    const thumbnailContainer = document.getElementById('thumbnail-container');
+
+    function showSlide(index) {
+      slideImage.src = currentImages[index];
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % currentImages.length;
+      showSlide(currentIndex);
+    }
+
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+      showSlide(currentIndex);
+    }
+
+    function startAutoSlide() {
+      clearInterval(slideInterval);
+      slideInterval = setInterval(nextSlide, 5000);
+    }
+
+    function selectAlbum(topic) {
+      currentImages = albums[topic];
+      currentIndex = 0;
+      showSlide(currentIndex);
+      showThumbnails();
+      startAutoSlide();
+    }
+
+    function showThumbnails() {
+      thumbnailContainer.innerHTML = '';
+      currentImages.forEach((img, index) => {
+        const image = document.createElement('img');
+        image.src = img;
+        image.onclick = () => {
+          currentIndex = index;
+          showSlide(currentIndex);
+        };
+        thumbnailContainer.appendChild(image);
+      });
+      thumbnailContainer.style.display = 'flex';
+    }
+
+    // Start automatic slide for random images initially
+    showSlide(currentIndex);
+    startAutoSlide();
+  </script>
+
+</body>
+</html>

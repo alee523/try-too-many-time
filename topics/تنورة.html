@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>عرض تفاعلي</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #111;
+      color: white;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    .slideshow {
+      position: relative;
+      width: 100%;
+      height: 300px;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    .text-box {
+      padding: 20px;
+      background: #222;
+      border-radius: 10px;
+      width: 80%;
+      margin: 20px auto;
+      line-height: 2;
+      font-size: 1.2em;
+    }
+
+    .highlight {
+      color: yellow;
+      font-weight: bold;
+    }
+
+    audio {
+      margin: 20px;
+      width: 80%;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- السلايدشو -->
+  <div class="slideshow">
+    <img class="slide active" src="https://images.unsplash.com/photo-1605460375648-278bcbd579a6" alt="صورة 1">
+    <img class="slide" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="صورة 2">
+    <img class="slide" src="https://images.unsplash.com/photo-1495567720989-cebdbdd97913" alt="صورة 3">
+  </div>
+
+  <!-- صندوق النص -->
+  <div class="text-box" id="textBox">
+    <span data-start="0" data-end="3">مرحبًا بك في العرض التفاعلي.</span>
+    <span data-start="3" data-end="6">الصور تتحرك أمامك،</span>
+    <span data-start="6" data-end="9">والصوت يرافقك.</span>
+    <span data-start="9" data-end="12">تجربة ممتعة نتمنى لك.</span>
+  </div>
+
+  <!-- مشغل الصوت -->
+  <audio id="audio" controls>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+    المتصفح لا يدعم تشغيل الصوت.
+  </audio>
+
+  <script>
+    // سلايدشو تلقائي
+    const slides = document.querySelectorAll('.slide');
+    let slideIndex = 0;
+    setInterval(() => {
+      slides[slideIndex].classList.remove('active');
+      slideIndex = (slideIndex + 1) % slides.length;
+      slides[slideIndex].classList.add('active');
+    }, 4000);
+
+    // مزامنة النص مع الصوت
+    const audio = document.getElementById('audio');
+    const spans = document.querySelectorAll('#textBox span');
+
+    audio.ontimeupdate = () => {
+      const currentTime = audio.currentTime;
+      spans.forEach(span => {
+        const start = parseFloat(span.getAttribute('data-start'));
+        const end = parseFloat(span.getAttribute('data-end'));
+        if (currentTime >= start && currentTime < end) {
+          span.classList.add('highlight');
+        } else {
+          span.classList.remove('highlight');
+        }
+      });
+    };
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>تأثير التراكيب الجيولوجية على تدفق المياه الجوفية</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+      color: white;
+      min-height: 100vh;
+      padding-bottom: 180px;
+    }
+    .overlay {
+      position: fixed;
+      top: 0; right: 0; bottom: 0; left: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+    }
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+      z-index: 1;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      color: #a0e9ff;
+      text-shadow: 0 0 15px #ffffff99;
+      animation: slideIn 1.2s ease-out forwards;
+    }
+    .content {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 20px;
+      position: relative;
+      z-index: 1;
+    }
+    details {
+      background: rgba(0, 188, 212, 0.05);
+      margin-bottom: 20px;
+      border-radius: 12px;
+      padding: 15px;
+      cursor: pointer;
+      border: 1px solid #00bcd4;
+    }
+    summary {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #00e5ff;
+      text-shadow: 0 0 5px #00e5ff66;
+    }
+    .buttons-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      padding: 30px 15px;
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 999;
+    }
+    .buttons-container a,
+    .buttons-container button {
+      background: #00bcd4;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .buttons-container a:hover,
+    .buttons-container button:hover {
+      background: #0097a7;
+      transform: scale(1.05);
+    }
+    .back-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #00bcd4;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 1rem;
+      z-index: 1000;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+      transition: background 0.3s, transform 0.3s;
+    }
+    .back-btn:hover {
+      background: #0097a7;
+      transform: scale(1.05);
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+  <header>
+    <h1>تأثير التراكيب الجيولوجية على تدفق المياه الجوفية</h1>
+  </header>
+
+  <div class="content" id="pdf-content">
+    <details>
+      <summary>التراكيب الجيولوجية</summary>
+      <div style="padding-top: 15px; line-height: 2; font-size: 1.2rem; color: #ffffffcc;">
+        <p>
+          التراكيب الجيولوجية: هي الهياكل التي تتشكل نتيجة العمليات الجيولوجية المختلفة والتي تؤثر على تكوين سطح الأرض وباطنها.
+        </p>
+        <p>
+          ومن أنواع هذه التراكيب:
+        </p>
+        <ul>
+          <li>التراكيب الأولية</li>
+          <li>التراكيب الثانوية</li>
+        </ul>
+      </div>
+    </details>
+    <details>
+  <summary>أنواع التراكيب الجيولوجية</summary>
+  <div style="padding-top: 15px; line-height: 2; font-size: 1.2rem; color: #ffffffcc;">
+    <p>
+      تشمل هذه التراكيب مجموعة من الظواهر والعمليات التي تؤدي إلى تغيير شكل ومكونات الصخور. ومن هذه التراكيب:
+    </p>
+    <ul>
+      <li>الطبقات الصخرية</li>
+      <li>الشقوق</li>
+      <li>الطيات</li>
+      <li>البُنيات الفوقية</li>
+      <li>التراكيب المعدنية</li>
+      <li>الحفرات والأحواض</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary>صور لأنواع التراكيب الجيولوجية</summary>
+  <div style="padding-top: 20px; line-height: 2; font-size: 1.2rem; color: #ffffffcc;">
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+      <img src="C:\laibarary\ali\seminar\image\rzaz\IMG-20250418-WA0025.jpg" alt="تركيب جيولوجي" style="max-width: 300px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.5);">
+      <img src="C:\laibarary\ali\seminar\image\rzaz\IMG-20250418-WA0024.jpg" alt="تركيب جيولوجي" style="max-width: 300px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.5);">
+      <img src="C:\laibarary\ali\seminar\image\rzaz\IMG-20250418-WA0028.jpg" alt="تركيب جيولوجي" style="max-width: 300px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.5);">
+      <img src="C:\laibarary\ali\seminar\image\rzaz\IMG-20250418-WA0026.jpg" alt="تركيب جيولوجي" style="max-width: 300px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.5);">
+      <img src="C:\laibarary\ali\seminar\image\rzaz\IMG-20250418-WA0027.jpg" alt="تركيب جيولوجي" style="max-width: 300px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.5);">
+    </div>
+  </div>
+</details>
+
+<details>
+  <summary>أهمية التراكيب الجيولوجية في سياق المياه الجوفية</summary>
+  <div style="padding-top: 15px; line-height: 2; font-size: 1.2rem; color: #ffffffcc;">
+    <ol>
+      <li>
+        <strong style="color:#00e5ff;">تحديد مواقع المياه الجوفية:</strong> تساعد التراكيب الجيولوجية في تحديد المناطق التي من المحتمل أن تحتوي على موارد مائية، على سبيل المثال توفِر الصخور المسامية مثل الرمل والحصى بيئات مثالية لتخزين المياه.
+      </li>
+      <li>
+        <strong style="color:#00e5ff;">النفاذية والتدفق:</strong> تؤثر الصخور والتربة على قدرة المياه على الحركة، الصخور ذات النفاذية العالية تسمح بتدفق المياه بسهولة، بينما الصخور الطينية أو الصخور الصلصالية قد تُعيق هذا التدفق مما يُحدد معدل تدفق المياه الجوفية.
+      </li>
+      <li>
+        <strong style="color:#00e5ff;">تخزين المياه:</strong> تلعب التراكيب الجيولوجية مثل الأحواض الصخرية والجبال المتصدعة دوراً مهماً في تخزين المياه الجوفية، يمكن أن تُحتجز المياه في الفراغات بين حبيبات الصخور وفي الفجوات داخل الشقوق.
+      </li>
+      <li>
+        <strong style="color:#00e5ff;">تحديد جودة المياه:</strong> تتأثر جودة المياه الجوفية بالمركبات الكيميائية الموجودة في التراكيب الجيولوجية، بعض التراكيب قد تحتوي على معادن يمكن أن تؤدي إلى تلوث المياه، بينما قد تكون أخرى مصدراً للمياه النقية.
+      </li>
+      <li>
+        <strong style="color:#00e5ff;">التفاعلات مع البيئة:</strong> يمكن أن تؤثر التراكيب الجيولوجية على كيفية تفاعل المياه الجوفية مع المياه السطحية؛ فالتغيرات في التركيب الجيولوجي قد تؤدي إلى تغيرات في مستويات المياه السطحية أو تدفق الأنهار.
+      </li>
+      <li>
+        <strong style="color:#00e5ff;">التعامل مع التغيرات المناخية:</strong> يساعد فهم التراكيب الجيولوجية في تقييم كيفية تأثير التغيرات البيئية والمناخية على الموارد المائية، وبالتالي تساعد في إدارة مياه الشرب.
+      </li>
+    </ol>
+  </div>
+</details>
+
+
+<details>
+  <summary>تأثير التراكيب الجيولوجية على تدفق المياه الجوفية</summary>
+  <div style="padding-top: 15px; line-height: 2; font-size: 1.2rem; color: #ffffffcc;">
+    تؤثر هذه التراكيب الجيولوجية بشكل كبير على تدفق المياه الجوفية وذلك من خلال عدة عوامل:
+    <ul style="margin-top: 10px;">
+      <li>
+        <strong style="color:#00e5ff;">أولاً: النفاذية:</strong> تؤثر خصائص الصخور والتربة مثل حجم الفراغات وشكلها على قدرة المياه على الحركة خلالهما، على سبيل المثال الصخور الرملية والكوارتزية لديها نفاذية أعلى من الصخور الطينية أو الصخر الجيري الصلب.
+      </li>
+      <li>
+        <strong style="color:#00e5ff;">ثانياً: الرتب الجيولوجية:</strong> تتكون التراكيب الجيولوجية من طبقات مختلفة مثل الطبقات الصخرية والمائية، هذه الطبقات يمكن أن تُعيق أو تُسهل تدفق المياه، حيث يمكن أن تتجمع المياه في مناطق معينة أو يتم حصرها.
+      </li>
+      <li>
+        <strong style="color:#00e5ff;">ثالثاً: الشقوق والفواصل:</strong> توجد في الصخور شقوق وفواصل يمكن أن تلعب دوراً كبيراً في توجيه تدفق المياه الجوفية، هذه الشقوق يمكن أن تعمل كمسارات للمياه مما يزيد من معدل التدفق في بعض المناطق.
+      </li>
+      <li>
+        <strong style="color:#00e5ff;">رابعاً: الميول والانحدارات:</strong> البنية المحلية للأرض مثل الانحدارات والميول تؤثر على اتجاه ومعدل تدفق المياه الجوفية، حيث أن المياه تميل للتحرك نحو الأسفل في المناطق ذات الانحدارات الشديدة.
+      </li>
+      <li>
+        <strong style="color:#00e5ff;">خامساً: التداخلات الجيولوجية:</strong> إذا كانت هناك طبقات متداخلة من الصخور المختلفة يمكن أن يؤدي ذلك إلى تشكيل هياكل مثل الأحواض أو الجيوب المائية حيث يمكن أن تتجمع المياه.
+      </li>
+    </ul>
+    <p style="margin-top: 10px;">
+      إذاً لفهم تأثير التراكيب الجيولوجية على تدفق المياه الجوفية ينبغي مراعاة الخصائص الفيزيائية والكيميائية للصخور، بالإضافة إلى العوامل البيئية المحيطة.
+      وتُعتبر هذه التراكيب ذات أهمية كبيرة بالنسبة للمياه الجوفية؛ فهي تؤثر على توزيعها وتوزيع موارد المياه المختلفة.
+    </p>
+  </div>
+</details>
+
+<details>
+  <summary>ختاماً</summary>
+  <div style="padding-top: 15px; line-height: 2; font-size: 1.2rem; color: #ffffffcc;">
+    تُشكل التراكيب الجيولوجية الأساس لدراسة وتقييم موارد المياه الجوفية، مما يجعلها محورية في مجالات المياه والبيئة والتنمية المستدامة.
+  </div>
+</details>
+
+  </div>
+  
+  
+  <div style="margin-top: 30px; text-align: center;">
+  <h2 style="color: cornflowerblue; margin-bottom: 10px;">استمع إلى الشرح الصوتي:</h2>
+  <audio controls style="width: 100%; max-width: 600px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);" controlsList="nodownload">
+    <source src="C:\laibarary\ali\seminar\audio\rzaz.opus" type="audio/ogg">
+    متصفحك لا يدعم تشغيل الصوت.
+  </audio>
+</div>
+  
+  
+  
+  
+
+  <div class="buttons-container">
+    <a href="C:\laibarary\ali\seminar\topics.html">الرجوع للموضوعات</a>
+    <a class="back-btn" href="C:\laibarary\ali\seminar\index.html">العودة إلى أقسام البرنامج</a>
+    
+    <a href="C:\laibarary\ali\seminar\audio\rzaz.opus" download>تحميل الملف الصوتي</a>
+  </div>
+  
+  
+  
+
+  <script>
+    function downloadPDF() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      html2canvas(document.querySelector("#pdf-content"), {scale: 2}).then(canvas => {
+        const imgData = canvas.toDataURL("image/png");
+        const imgProps= doc.getImageProperties(imgData);
+        const pdfWidth = doc.internal.pageSize.getWidth();
+        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+        doc.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+        doc.save("topic.pdf");
+      });
+    }
+  </script>
+</body>
+</html>

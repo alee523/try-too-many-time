@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>سمنار جامعي</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+  <style>
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Cairo', sans-serif;
+}
+
+/* هيدر */
+header {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.welcome-text {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1.5s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+.welcome-text h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.welcome-text p {
+  font-size: 1.5rem;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.typewriter {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: #eee;
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-family: monospace;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid #eee;
+  width: 0;
+  animation: typing 5s steps(40, end) forwards, blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 270px }
+}
+
+@keyframes blink {
+  from, to { border-color: transparent }
+  50% { border-color: #eee }
+}
+
+/* الشريط الجانبي */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -270px;
+  width: 270px;
+  height: 100%;
+  background: rgba(20, 20, 20, 0.6);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(14px);
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+  color: white;
+  transition: left 0.4s ease;
+  padding: 60px 20px;
+  z-index: 2000;
+}
+
+.sidebar.active {
+  left: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar ul li {
+  padding: 15px 0;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sidebar ul li::before {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  right: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #4dd0e1, #ffffff, #4dd0e1);
+  box-shadow: 0 0 8px #4dd0e1;
+  transition: width 0.4s ease;
+  border-radius: 10px;
+}
+
+.sidebar ul li:hover::before {
+  width: 100%;
+}
+
+.sidebar ul li:hover {
+  color: #b2ebf2;
+  text-shadow: 0 0 10px #ffffffaa;
+}
+
+/* زر القائمة */
+.menu-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 40px;
+  height: 30px;
+  cursor: pointer;
+  z-index: 2100;
+}
+
+.menu-btn div {
+  background-color: white;
+  height: 4px;
+  margin: 6px 0;
+  transition: 0.4s;
+  border-radius: 2px;
+}
+
+.menu-btn.open div:nth-child(1) {
+  transform: rotate(45deg) translate(7px, 7px);
+}
+
+.menu-btn.open div:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-btn.open div:nth-child(3) {
+  transform: rotate(-45deg) translate(8px, -8px);
+}
+
+/* زر AI الدائري */
+.ai-launcher {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #006064, #00acc1);
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
+  font-family: 'Cairo', sans-serif;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1100;
+  box-shadow: 0 4px 15px rgba(0, 172, 193, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.ai-launcher:hover {
+  transform: scale(1.1);
+}
+
+/* واجهة البرنامج */
+.program-section {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+  transform: scale(0);
+  transform-origin: center;
+  transition: transform 0.7s ease;
+}
+
+.program-section.active {
+  transform: scale(1);
+}
+
+.program-content {
+  background: rgba(30, 30, 30, 0.6);
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  max-width: 650px;
+  width: 90%;
+  color: white;
+  z-index: 1;
+  position: relative;
+}
+
+.program-content h2 {
+  font-size: 2.5rem;
+  color: #80deea;
+  margin-bottom: 10px;
+  text-shadow: 0 0 12px #ffffffaa;
+}
+
+.program-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #b2ebf2;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #ff5252;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  border-radius: 10px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.close-btn:hover {
+  background: #c62828;
+}
+
+.tool-btn {
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  border: 2px solid #00e5ff;
+  border-radius: 12px;
+  background: transparent;
+  color: #80deea;
+  min-width: 240px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 8px #00e5ff66;
+}
+
+.tool-btn:hover {
+  background: #0097a722;
+  color: #ffffff;
+  transform: scale(1.07);
+  box-shadow: 0 0 12px #00e5ff;
+}
+
+.tool-container {
+  margin-bottom: 20px;
+  animation: fadeIn 0.6s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.tool-container.right {
+  animation-delay: 0.3s;
+}
+
+.tool-container.left {
+  animation-delay: 0.5s;
+}
+
+.tool-number {
+  font-size: 1.2rem;
+  color: #ffffffaa;
+  margin-bottom: 6px;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* قسم */
+.section {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(to bottom, #263238, #37474f);
+  color: #e0f7fa;
+  padding: 60px;
+  overflow: auto;
+  z-index: 1500;
+  display: none;
+  animation: fadeIn 0.5s ease;
+}
+
+.section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.section.active {
+  display: block;
+}
+
+/* إضافات */
+.sidebar.colored {
+  background: rgba(0, 150, 136, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 255, 255, 0.3);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.sidebar.opened {
+  background-color: #ffffff22;
+}
+
+.menu-btn.opened div {
+  background-color: #00bcd4;
+}
+  </style>
+</head>
+<body>
+
+  <!-- زر القائمة -->
+  <div class="menu-btn" onclick="toggleSidebar(this)">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <!-- الشريط الجانبي -->
+  <div class="sidebar" id="sidebar">
+<ul>
+  <li onclick="showSection('home')">الرئيسية</li>
+  <li onclick="showSection('about')">حول السمنار</li>
+  <li onclick="showSection('team')">فريق العمل</li>
+  <li onclick="showSection('contact')">التواصل</li>
+</ul>
+  </div>
+
+  <!-- الهيدر -->
+  <header>
+    <div class="overlay"></div>
+    <div class="welcome-text">
+      <h1>مرحبًا بكم في صفحة سمنارنا البسيطة!</h1>
+      <p>أهلاً وسهلاً بكم</p>
+    </div>
+    <div class="typewriter">تحت إشراف المجموعة الثالثة</div>
+  </header>
+
+
+
+
+
+<!-- أقسام المحتوى -->
+<div id="section-about" class="section hidden">
+  <h2>حول السمنار</h2>
+  <h3>سمنار الفرقة الثالثة - كلية هندسة المياه والبيئة- جامعة السودان للعلوم والتكنولوجيا</h3>
+   <p>
+    يركز هذا السمنار على دراسة العلاقة بين الطبقات الجيولوجية والمياه الجوفية، من حيث أنواع الطبقات، خصائصها، ودورها في تخزين ونقل المياه. كما يتناول تأثير التراكيب الجيولوجية والصخور المختلفة على النظام المائي الجوفي، إضافة إلى التطبيقات الهندسية والتحديات المرتبطة بإدارة هذا المورد الحيوي في البيئات الجيولوجية المتنوعة.
+  </p>
+  
+  
+  
+  <h2>إعداد المواضيع:</h2>
+  <ul>
+    <li>1 - زينب ابراهيم</li>
+    <li>2 - وعد سعيد</li>
+    <li>3 - محمود محمد</li>
+    <li>4 - ملاذ يوسف</li>
+    <li>5 - أميرة مصطفى</li>
+    <li>6 - رزاز محمد</li>
+    <li>7 - مازن حيدر</li>
+    <li>8 - فاطمة حسن</li>
+    <li>9 - مضر سعيد</li>
+    <li>10 - لمياء كبسور</li>
+    <li>11 - محمود (حوتة)</li>
+    <li>12 - علي حافظ</li>
+  </ul>
+  
+  
+  <p><h2>إشراف</h2> <h3>المجموعه الثالثه</h3></p>
+</div>
+
+<div id="section-team" class="section hidden">
+  <h2>فريق العمل</h2>
+  <h3>علي حافظ</h3>
+</div>
+
+<div id="section-contact" class="section hidden">
+  <h2>التواصل</h2>
+  <p>يمكنك مراسلتنا عبر البريد: <p>
+  للتواصل معنا، الرجاء المراسلة على البريد التالي:
+  <a href="mailto:a.leehafizee@gmail.com" style="color: black; text-decoration: none;">a.leehafizee@gmail.com</a>
+</p>
+</div>
+
+
+
+
+
+
+  <!-- زر البرنامج -->
+  <div class="ai-launcher" onclick="launchProgram()">
+    <span>البرنامج</span>
+  </div>
+
+<!-- قسم البرنامج -->
+<div id="program-section" class="program-section">
+  <div class="program-content">
+    <button class="close-btn" onclick="closeProgram()">إغلاق</button>
+    <h2>برنامج السمنار</h2>
+    
+    <!-- إضافة قسم الأدوات هنا -->
+    <div class="tools-section">
+      <div class="tool-container right">
+        
+        <button class="tool-btn" onclick="openTopic()">موضوعات السمنار</button>
+      </div>
+      <div class="tool-container left">
+        
+        <button class="tool-btn" onclick="openGoals()">أهداف السمنار</button>
+      </div>
+      
+      
+      
+      <div class="tool-container left">
+      
+        <button class="tool-btn" onclick="openAudioAlbum()">ألبوم الصوتيات</button>
+      </div>
+      
+      <div class="tool-container right">
+      
+        <button class="tool-btn" onclick="openImageAlbum()">ألبوم الصور</button>
+      </div>
+    </div>
+    <!-- نهاية قسم الأدوات -->
+  </div>
+</div>
+
+  <script>
+    function toggleSidebar(btn) {
+      btn.classList.toggle("open");
+      document.getElementById("sidebar").classList.toggle("active");
+    }
+
+    function launchProgram() {
+      document.getElementById("program-section").classList.add("active");
+    }
+
+    function closeProgram() {
+      document.getElementById("program-section").classList.remove("active");
+    }
+    // هذه الوظائف ستكون مرتبطة بالأقسام في المستقبل.
+function openTopic() {
+  window.location.href = "topics.html";
+}  // يمكنك هنا إضافة الكود لفتح قسم الموضوعات.
+
+
+function openGoals() {
+  window.location.href = "goals.html";
+} // يمكنك هنا إضافة الكود لفتح قسم الأهداف.
+
+
+function openResearch() {
+  window.location.href = "research.html";
+}// يمكنك هنا إضافة الكود لفتح قسم البحوث.
+
+
+function openAudioAlbum() {
+  window.location.href = "audio.html";
+} // يمكنك هنا إضافة الكود لفتح قسم الصوتيات.
+
+function openImageAlbum() {
+  window.location.href = "images.html";
+}
+
+
+
+
+
+
+
+
+
+function showSection(section) {
+  const allSections = ['about', 'team', 'contact'];
+
+  // إخفاء كل الأقسام
+  allSections.forEach(s => {
+    document.getElementById(`section-${s}`).classList.remove('active');
+    document.getElementById(`section-${s}`).classList.add('hidden');
+  });
+
+  // إغلاق البرنامج
+  closeProgram();
+
+  // إذا رجع للقسم الرئيسي
+  if (section === 'home') {
+  // أزل تأثير اللون
+  document.getElementById("sidebar").classList.remove("colored");
+
+  // أغلق الشريط الجانبي وزر القائمة
+  document.getElementById("sidebar").classList.remove("active");
+  }
+
+  // عرض القسم المطلوب
+  const currentSection = document.getElementById(`section-${section}`);
+  currentSection.classList.add('active');
+  currentSection.classList.remove('hidden');
+
+  // أغلق الشريط الجانبي
+  document.getElementById("sidebar").classList.remove("active");
+  document.querySelector(".menu-btn").classList.remove("open");
+
+  // أضف تأثير اللون
+  document.getElementById("sidebar").classList.add("colored");
+}
+
+
+
+
+
+
+window.addEventListener('DOMContentLoaded', () => {
+  const triggerProgram = sessionStorage.getItem('launchProgram');
+  if (triggerProgram === 'true') {
+    launchProgram();
+    sessionStorage.removeItem('launchProgram');
+  }
+});
+  </script>
+  
+  
+</body>
+</html>

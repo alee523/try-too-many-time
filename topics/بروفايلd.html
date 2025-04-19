@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>المياه الجوفية</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      padding: 40px;
+      background: linear-gradient(45deg, #00c6ff, #0072ff);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    h2 {
+      font-size: 40px;
+      text-align: center;
+      font-weight: bold;
+      margin-bottom: 60px;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+    }
+
+    .slide {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 40px 0;
+      opacity: 0;
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .circle, .rect {
+      flex-shrink: 0;
+      width: 100px;
+      height: 100px;
+      margin-bottom: 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border: 3px solid #0072ff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      color: #333;
+      font-weight: bold;
+      text-align: center;
+      line-height: 100px;
+      border-radius: 50%;
+    }
+
+    .rect {
+      width: 200px;
+      height: 120px;
+      border-radius: 15px;
+      line-height: 120px;
+    }
+
+    .text {
+      font-size: 18px;
+      max-width: 600px;
+      text-align: center;
+      text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+    }
+
+    /* اتجاهات الظهور */
+    .from-left { transform: translateX(-100px); }
+    .from-right { transform: translateX(100px); }
+    .from-top { transform: translateY(-100px); }
+    .from-bottom { transform: translateY(100px); }
+
+    .visible {
+      opacity: 1;
+      transform: translateX(0) translateY(0);
+    }
+
+    .play-button {
+      position: fixed;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 48px;
+      cursor: pointer;
+      background-color: #0072ff;
+      padding: 15px;
+      border-radius: 50%;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .play-button:hover {
+      background-color: #005bb5;
+      transform: translateX(-50%) scale(1.1);
+    }
+  </style>
+</head>
+<body>
+
+  <h2 id="title" class="slide from-top">المياه الجوفية</h2>
+
+  <div class="slide from-left" id="step1">
+    <div class="circle">Image1</div>
+    <div class="text">
+      <h3>تسرب المياه من الأمطار إلى الأرض</h3>
+      <p>تسرب مياه الأمطار إلى باطن الأرض يعد خطوة أولية مهمة في تكوين الخزانات الجوفية. هذه المياه تبدأ بالتسرب عبر التربة والرمال إلى الطبقات السفلية حيث تتجمع.</p>
+    </div>
+  </div>
+
+  <div class="slide from-right" id="step2">
+    <div class="rect">Image2</div>
+    <div class="text">
+      <h3>تكوين خزان المياه الجوفية</h3>
+      <p>خزانات المياه الجوفية تتكون عندما تتسرب المياه عبر الطبقات المسامية مثل الرمال أو الحصى لتتجمع في طبقات صخرية تشكل خزانًا طبيعيًا.</p>
+    </div>
+  </div>
+
+  <div class="slide from-bottom" id="step3">
+    <div class="circle">Image5</div>
+    <div class="text">
+      <h3>بئر لجمع المياه الجوفية</h3>
+      <p>يتم حفر الآبار لاستخراج المياه الجوفية. هذه الآبار تتراوح في العمق حسب موقع الخزان الجوفي وكمية المياه المطلوبة.</p>
+    </div>
+  </div>
+
+  <div class="slide from-left" id="step4">
+    <div class="circle">Image6</div>
+    <div class="text">
+      <h3>استخدام المياه الجوفية للري</h3>
+      <p>تستخدم المياه الجوفية بشكل رئيسي في الري الزراعي في المناطق الجافة، مما يساعد في تحسين إنتاج المحاصيل الزراعية.</p>
+    </div>
+  </div>
+
+  <div class="slide from-right" id="step5">
+    <div class="circle">Image3</div>
+    <div class="text">
+      <h3>الصخور المنفذة للماء</h3>
+      <p>تعتبر الصخور المسامية مثل الرمل والحصى من المواد التي تساعد في تخزين المياه الجوفية. تكون هذه الصخور قادرة على تخزين كميات كبيرة من المياه التي يمكن استخدامها لاحقًا.</p>
+    </div>
+  </div>
+
+  <div class="slide from-bottom" id="step6">
+    <div class="circle">Image4</div>
+    <div class="text">
+      <h3>طبقات طينية عازلة</h3>
+      <p>تعمل الطبقات الطينية كحاجز يمنع تسرب المياه من الخزانات الجوفية، مما يحفظ المياه في المناطق التي يصعب الوصول إليها.</p>
+    </div>
+  </div>
+
+  <div class="slide from-top" id="step7">
+    <div class="circle">Image7</div>
+    <div class="text">
+      <h3>انخفاض مستوى المياه بسبب الاستخدام المفرط</h3>
+      <p>الاستخدام المفرط للمياه الجوفية في الزراعة والصناعة قد يؤدي إلى انخفاض مستويات المياه الجوفية، مما يعرض هذه المصادر الطبيعية للندرة ويؤثر على البيئة.</p>
+    </div>
+  </div>
+
+  <div class="play-button" onclick="startPresentation()">▶️</div>
+
+  <script>
+    const steps = [
+      'title',
+      'step1',
+      'step2',
+      'step3',
+      'step4',
+      'step5',
+      'step6',
+      'step7'
+    ];
+
+    let currentStep = 0;
+
+    window.onload = () => {
+      const interval = setInterval(() => {
+        if (currentStep < steps.length) {
+          const el = document.getElementById(steps[currentStep]);
+          if (el) el.classList.add('visible');
+          currentStep++;
+        } else {
+          clearInterval(interval);
+        }
+      }, 1500);
+    };
+  </script>
+
+</body>
+</html>

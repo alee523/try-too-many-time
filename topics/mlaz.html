@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>الخزانات الجوفية وأنواعها</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>
+    /* نفس التنسيق محفوظ كما هو */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+      color: white;
+      min-height: 100vh;
+      padding-bottom: 180px;
+    }
+    .overlay {
+      position: fixed;
+      top: 0; right: 0; bottom: 0; left: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+    }
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+      z-index: 1;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      color: #a0e9ff;
+      text-shadow: 0 0 15px #ffffff99;
+      animation: slideIn 1.2s ease-out forwards;
+    }
+    .content {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 20px;
+      position: relative;
+      z-index: 1;
+    }
+    details {
+      background: rgba(0, 188, 212, 0.05);
+      margin-bottom: 20px;
+      border-radius: 12px;
+      padding: 15px;
+      cursor: pointer;
+      border: 1px solid #00bcd4;
+    }
+    summary {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #00e5ff;
+      text-shadow: 0 0 5px #00e5ff66;
+    }
+    .buttons-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      padding: 30px 15px;
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 999;
+    }
+    .buttons-container a,
+    .buttons-container button {
+      background: #00bcd4;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .buttons-container a:hover,
+    .buttons-container button:hover {
+      background: #0097a7;
+      transform: scale(1.05);
+    }
+    .back-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #00bcd4;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 1rem;
+      z-index: 1000;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+      transition: background 0.3s, transform 0.3s;
+    }
+    .back-btn:hover {
+      background: #0097a7;
+      transform: scale(1.05);
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+  <header>
+    <h1>الخزانات الجوفية وأنواعها</h1>
+  </header>
+
+  <div class="content" id="pdf-content">
+    <details open>
+      <summary>الخزانات الجوفية و أنواعها</summary>
+      <div style="padding-top: 15px; line-height: 2; font-size: 1.2rem; color: #ffffffcc;">
+        <h2>تعريف الخزان الجوفي:</h2>
+        <p>
+          الخزان الجوفي هو تكوين جيولوجي يتكون من طبقات صخرية أو رسوبية تحتوي على مسام وفراغات قادرة على تخزين المياه الجوفية.
+        </p>
+        <h2>آلية عمل الخزان الجوفي:</h2>
+        <p>
+          تتسرب المياه إلى الطبقات السفلية من الأرض عبر التربة وتُخزن في المسام الموجودة في الصخور أو الرواسب.
+        </p>
+      </div>
+    </details>
+    
+    <details>
+  <summary>أنواع الخزانات الجوفية</summary>
+  <div style="padding-top: 15px; line-height: 2; font-size: 1.2rem; color: #ffffffcc;">
+    <h2>1- الخزانات الجوفية المقيدة أو المحصورة (غير حرة): Confined Aquifer</h2>
+    <p>
+      تكون هذه الخزانات محاطة من الأعلى والأسفل بطبقتين غير منفذتين ولا مساميتين لا تسمحان بحركة المياه لأعلى أو لأسفل، وتكون المياه تحت ضغط أعلى من الضغط الجوي بسبب ضغط الصخور التي تغطي الخزان فضلاً عن الضغط الهيدروستاتيكي الناتج من المياه الموجودة في الخزان.
+    </p>
+    <p>
+      تذود هذه الخزانات بالمياه من الأجزاء المغطاة بطبقة نفاذة تسمح بمرور المياه خلالها. عند حفر الآبار لاستخراج المياه من هذه الخزانات فإن مستوى المياه في البئر المحفور يرتفع حتى يتعادل الضغط الهيدروستاتيكي للخزان مع الضغط الجوي، والمياه في البئر تناسب طبيعياً وهذا ما يعرف بالبئر الإرتوازي.
+    </p>
+    <p>
+      معظم خزانات المياه الجوفية في جوف الصحراء الغربية المصرية وجنوب الصحراء الكبرى هي خزانات محصورة، وفي السودان نجد الخزانات المحصورة في تكوينات الحجر الرملي النوبي في شمال السودان.
+    </p>
+
+    <h2>2- الخزانات الجوفية شبه المقيدة أو شبه المحصورة: Semi Confined Aquifer</h2>
+    <p>
+      تكون هذه الخزانات محاطة بطبقتين: طبقة صماء غير منفذة وغير مسامية وطبقة شبه صماء وشبه مسامية منفذة للمياه. تكون المياه محصورة جزئياً.
+    </p>
+    <p>
+      مثال: مثل بعض المناطق في شرق السودان.
+    </p>
+
+    <h2>3- الخزانات الجوفية الغير محصورة (الحرة): Unconfined Aquifer</h2>
+    <p>
+      تكون هذه الخزانات محاطة بالأسفل بطبقة غير مسامية وغير نفاذة، ويحدها من الأعلى منسوب المياه الجوفية وهو حدود أعلى منطقة التشبع. يرتفع مستوى الماء في البئر إلى مستوى المياه الجوفية.
+    </p>
+    <p>
+      مثال: المناطق الزراعية في وسط السودان.
+    </p>
+
+    <h2>4- الخزانات الجوفية المعلقة: Suspended Aquifers</h2>
+    <p>
+      تتخلل الطبقة النفاذة عبر عمق معين أو مسافة محدودة تكوينات غير نفاذة تعيق وتمنع حركة المياه. لا تعد تكوينات حاملة بل تدعى طبقات جاثمة أو معلقة، تكون فيها المياه مخزنة منذ لحظة تكوين الصخور أو منذ إنشائها.
+    </p>
+    <p>
+      هذه المياه عادةً ليس لها أي اتصال أو مصادر خارجية.
+    </p>
+  </div>
+</details>
+
+<details>
+  <summary>أهمية الخزانات الجوفية</summary>
+  <div style="padding-top: 15px; line-height: 2; font-size: 1.2rem; color: #ffffffcc;">
+    <h2>1- تعتبر مصدراً رئيسياً للمياه العذبة</h2>
+    <p>
+      الخزانات الجوفية توفر مصدراً طبيعياً للمياه العذبة التي يمكن استخدامها في العديد من المجالات.
+    </p>
+
+    <h2>2- تستخدم في الزراعة والصناعة والشرب</h2>
+    <p>
+      المياه الجوفية المستخرجة من الخزانات تستخدم في الزراعة، حيث تساهم في ري الأراضي الزراعية، وكذلك في الصناعة لتلبية احتياجات العمليات الصناعية المختلفة، بالإضافة إلى استخدامها كمصدر مياه للشرب في العديد من المناطق.
+    </p>
+
+    <h2>3- تساعد في الحفاظ على التوازن البيئي</h2>
+    <p>
+      الخزانات الجوفية تعمل على حفظ التوازن البيئي من خلال توفير مصدر مستمر للمياه التي تدعم الأنظمة البيئية المحلية، مما يساعد في الحفاظ على التنوع البيولوجي واستدامة الموارد الطبيعية.
+    </p>
+  </div>
+</details>
+<details>
+  <summary>المراجع</summary>
+  <div style="padding-top: 15px; line-height: 2; font-size: 1.2rem; color: #ffffffcc;">
+    <h2>1- موقع إلكتروني: <a href="https://www.wikipedia.org" target="_blank" style="color: #00e5ff;">ويكيبيديا</a></h2>
+    <p>موقع ويكيبيديا يحتوي على معلومات موسوعية شاملة حول الخزانات الجوفية وموضوعات جيولوجية أخرى.</p>
+
+    <h2>2- موقع إلكتروني: <a href="https://www.elmrefe.com" target="_blank" style="color: #00e5ff;">المرجع الإلكتروني للمعلوماتية</a></h2>
+    <p>الموقع الإلكتروني للمرجع الإلكتروني للمعلوماتية يقدم مصادر ومقالات في مجال الجيولوجيا والموارد المائية.</p>
+  </div>
+</details>
+
+
+<details>
+  <summary>صور توضيحية</summary>
+  <div style="padding-top: 15px; line-height: 2; font-size: 1.2rem; color: #ffffffcc; text-align: center;">
+    <p>الصور التالية تُظهر جوانب مختلفة من دراسة العلاقة بين الطبقات الجيولوجية والمياه الجوفية:</p>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 20px;">
+      <img src="C:\laibarary\ali\seminar\image\mlaz\IMG-20250419-WA0009.jpg" alt="صورة توضيحية 1" style="max-width: 300px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.5);">
+      <img src="C:\laibarary\ali\seminar\image\mlaz\IMG-20250419-WA0008.jpg" alt="صورة توضيحية 2" style="max-width: 300px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.5);">
+      <img src="C:\laibarary\ali\seminar\image\mlaz\IMG-20250419-WA0007.jpg" alt="صورة توضيحية 3" style="max-width: 300px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.5);">
+    </div>
+  </div>
+</details>
+
+  </div>
+
+
+<div style="margin-top: 30px; text-align: center;">
+  <h2 style="color: cornflowerblue; margin-bottom: 10px;">استمع إلى الشرح الصوتي:</h2>
+  <audio controls style="width: 100%; max-width: 600px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);" controlsList="nodownload">
+    <source src="/سمنار/audio/ليميا.aac" type="audio/aac">
+    متصفحك لا يدعم تشغيل الصوت.
+  </audio>
+</div>
+  <div class="buttons-container">
+    <a href="C:\laibarary\ali\seminar\topics.html">الرجوع للموضوعات</a>
+    <a class="back-btn" href="C:\laibarary\ali\seminar\index.html">العودة إلى أقسام البرنامج</a>
+    
+    <a href="/سمنار/audio/ليميا.aac" download>تحميل الملف الصوتي</a>
+  </div>
+
+  <script>
+    function downloadPDF() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      html2canvas(document.querySelector("#pdf-content"), {scale: 2}).then(canvas => {
+        const imgData = canvas.toDataURL("image/png");
+        const imgProps= doc.getImageProperties(imgData);
+        const pdfWidth = doc.internal.pageSize.getWidth();
+        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+        doc.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+        doc.save("topic.pdf");
+      });
+    }
+  </script>
+</body>
+</html>

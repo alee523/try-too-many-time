@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>ألبوم الصوتيات</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+      color: white;
+      min-height: 100vh;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      z-index: 1;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: #ffccbc;
+      text-shadow: 0 0 15px #ffffff99;
+      animation: fadeIn 1.2s ease-out forwards;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 60px auto;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(8px);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      z-index: 1;
+      position: relative;
+    }
+
+    .container h2 {
+      color: #ffe0b2;
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 25px;
+      text-shadow: 0 0 10px #ffab91;
+    }
+
+    .audio-item {
+      margin-bottom: 30px;
+    }
+
+    .audio-item h4 {
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+      color: #ffccbc;
+      text-shadow: 0 0 8px #ffffff66;
+    }
+
+    audio {
+      width: 100%;
+      border-radius: 8px;
+      background-color: #fff;
+    }
+
+    /* زر العودة العائم */
+    .back-btn {
+  position: fixed;
+  bottom: 10px;
+  right: 30px;
+  background: #ff7043;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 1rem;
+  z-index: 999999; /* تأكد من أن الزر في المقدمة أكثر من العناصر الأخرى */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s, transform 0.3s;
+}
+
+.back-btn:hover {
+  background: #d84315;
+  transform: scale(1.05);
+}
+
+
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="overlay"></div>
+
+  <header>
+    <h1>ألبوم الصوتيات</h1>
+  </header>
+
+  <div class="container">
+    <h2>تسجيلات صوتية من السمنار</h2>
+
+    <div class="audio-item">
+      <h4>الطبقات المانعة للمياه - إعداد: أميرة مصطفى</h4>
+      <audio controls>
+        <source src="audio/amira.opus" type="audio/ogg">
+        متصفحك لا يدعم مشغل الصوت.
+      </audio>
+    </div>
+
+    <div class="audio-item">
+      <h4>تأثير الصخور النارية والمتحولة على المياه الجوفية - إعداد: فاطمة حسن</h4>
+      <audio controls>
+        <source src="audio/fatima.m4a" type="audio/mp4">
+        متصفحك لا يدعم مشغل الصوت.
+      </audio>
+    </div>
+
+    <div class="audio-item">
+      <h4>التطبيقات الهندسية لفهم العلاقة بين الطبقات الجيولوجية والمياه الجوفية - إعداد: محمود (حوتة)</h4>
+      <audio controls>
+        <source src="audio/Mahmood.opus" type="audio/ogg">
+        <source src="audio/Mahmood1.opus" type="audio/ogg">
+        متصفحك لا يدعم مشغل الصوت.
+      </audio>
+    </div>
+
+    <div class="audio-item">
+      <h4>تأثير التراكيب الجيولوجية على تدفق المياه الجوفية - إعداد: رزاز محمد</h4>
+      <audio controls>
+        <source src="audio/rzaz.opus" type="audio/ogg">
+        متصفحك لا يدعم مشغل الصوت.
+      </audio>
+    </div>
+
+    <div class="audio-item">
+      <h4>أنواع الطبقات الجيولوجية وخصائصها - إعداد: وعد سعد</h4>
+      <audio controls>
+        <source src="audio/waad.opus" type="audio/ogg">
+        <source src="audio/wadd1.opus" type="audio/ogg">
+        متصفحك لا يدعم مشغل الصوت.
+      </audio>
+    </div>
+
+    <div class="audio-item">
+      <h4>طرق دراسة العلاقة بين الطبقات الجيولوجية والمياه الجوفية - إعداد: لمياء كبسور</h4>
+      <audio controls>
+        <source src="audio/ليميا.aac" type="audio/aac">
+        متصفحك لا يدعم مشغل الصوت.
+      </audio>
+    </div>
+
+  <!-- زر العودة العائم -->
+  <a class="back-btn" href="index.html" onclick="sessionStorage.setItem('launchProgram', 'true')">
+    العودة إلى أقسام البرنامج
+  </a>
+
+</body>
+</html>

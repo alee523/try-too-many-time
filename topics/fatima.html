@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>تأثير الصخور النارية والمتحولة على المياه الجوفية</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+      color: white;
+      min-height: 100vh;
+      padding-bottom: 180px;
+    }
+    .overlay {
+      position: fixed;
+      top: 0; right: 0; bottom: 0; left: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+    }
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+      z-index: 1;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      color: #a0e9ff;
+      text-shadow: 0 0 15px #ffffff99;
+      animation: slideIn 1.2s ease-out forwards;
+    }
+    .content {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 20px;
+      position: relative;
+      z-index: 1;
+    }
+    details {
+      background: rgba(0, 188, 212, 0.05);
+      margin-bottom: 20px;
+      border-radius: 12px;
+      padding: 15px;
+      cursor: pointer;
+      border: 1px solid #00bcd4;
+    }
+    summary {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #00e5ff;
+      text-shadow: 0 0 5px #00e5ff66;
+    }
+    .buttons-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      padding: 30px 15px;
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 999;
+    }
+    .buttons-container a,
+    .buttons-container button {
+      background: #00bcd4;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .buttons-container a:hover,
+    .buttons-container button:hover {
+      background: #0097a7;
+      transform: scale(1.05);
+    }
+    .back-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #00bcd4;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 1rem;
+      z-index: 1000;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+      transition: background 0.3s, transform 0.3s;
+    }
+    .back-btn:hover {
+      background: #0097a7;
+      transform: scale(1.05);
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+  <header>
+    <h1>تأثير الصخور النارية والمتحولة على المياه الجوفية</h1>
+  </header>
+
+  <div class="content" id="pdf-content">
+<details>
+  <summary>مقدمة</summary>
+  <div style="padding-top: 15px; line-height: 2; font-size: 1.2rem; color: #ffffffcc;">
+    <p>
+      تُعد <strong style="color:#00e5ff;">المياه الجوفية</strong> مصدرًا هامًا للمياه العذبة في العديد من المناطق حول العالم.
+    </p>
+    <p>
+      ومع ذلك، يمكن أن تتأثر <strong style="color:#a0e9ff;">جودة المياه الجوفية وتدفقها</strong> بسبب التفاعل مع الصخور النارية والمتحولة.
+    </p>
+    <p>
+      في هذا السمنار، سنناقش <strong style="color:#00e5ff;">تأثير الصخور النارية والمتحولة</strong> على المياه الجوفية من حيث الخصائص، والآثار البيئية والهيدروجيولوجية، مع تقديم أمثلة تطبيقية.
+    </p>
+
+    <!-- الصور -->
+    <div style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
+      <img src="C:\laibarary\ali\seminar\image\fatima\IMG-20250418-WA0010.jpg" alt="صورة توضيحية" style="width: 48%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+      <img src="C:\laibarary\ali\seminar\image\fatima\IMG-20250418-WA0009.jpg" alt="صورة توضيحية" style="width: 48%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+    </div>
+  </div>
+</details>
+
+
+<details>
+  <summary>تأثير الصخور النارية</summary>
+  <div style="padding-top: 15px; line-height: 2; font-size: 1.2rem; color: #ffffffcc;">
+    <p>
+      تؤثر <strong style="color:#00e5ff;">الصخور النارية</strong> على المياه الجوفية بطرق متعددة، من أبرزها:
+    </p>
+    <ul style="margin-right: 20px;">
+      <li><strong style="color:#a0e9ff;">تكوين المياه الجوفية:</strong> الصخور النارية يمكن أن تكون مصدرًا للمياه الجوفية إذا كانت تحتوي على تشققات ومسام تسمح بتخزين المياه.</li>
+      <li><strong style="color:#a0e9ff;">جودة المياه:</strong> قد تؤثر على جودة المياه من خلال إطلاق عناصر كيميائية معينة.</li>
+      <li><strong style="color:#a0e9ff;">تدفق المياه:</strong> تُشكل الصخور النارية مسارات أو عوائق لتدفق المياه، مما يؤثر على حركة المياه الجوفية.</li>
+    </ul>
+  </div>
+</details>
+<details>
+  <summary>تأثير الصخور المتحولة</summary>
+  <div style="padding-top: 15px; line-height: 2; font-size: 1.2rem; color: #ffffffcc;">
+    <p>
+      تؤثر <strong style="color:#00e5ff;">الصخور المتحولة</strong> على المياه الجوفية بعدة طرق، منها:
+    </p>
+    <ul style="margin-right: 20px;">
+      <li><strong style="color:#a0e9ff;">تغير التركيب الكيميائي:</strong> قد تطلق الصخور المتحولة عناصر كيميائية جديدة تؤثر على تركيب المياه الجوفية.</li>
+      <li><strong style="color:#a0e9ff;">تأثير على جودة المياه:</strong> يمكن أن تؤدي إلى وجود عناصر كيميائية ضارة تؤثر سلبًا على جودة المياه.</li>
+      <li><strong style="color:#a0e9ff;">تأثير على تدفق المياه:</strong> تشكل الصخور المتحولة مسارات أو عوائق تعيق أو توجه حركة المياه الجوفية.</li>
+    </ul>
+  </div>
+</details>
+
+
+<details>
+  <summary>صور تأثير الصخور النارية والمتحولة على المياه الجوفية</summary>
+  <div style="padding-top: 15px; line-height: 2; font-size: 1.2rem; color: #ffffffcc;">
+    <p>
+      إليك بعض الصور التي توضح تأثير الصخور النارية والمتحولة على المياه الجوفية:
+    </p>
+    <div style="display: flex; justify-content: space-around; gap: 20px;">
+      <img src="C:\laibarary\ali\seminar\image\fatima\IMG-20250418-WA0008.jpg" alt="صورة 1" style="width: 45%; border-radius: 12px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);">
+      <img src="C:\laibarary\ali\seminar\image\fatima\IMG-20250418-WA0006.jpg" alt="صورة 2" style="width: 45%; border-radius: 12px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);">
+    </div>
+  </div>
+</details>
+
+
+
+<details>
+  <summary>تأثير عام</summary>
+  <div style="padding-top: 15px; line-height: 2; font-size: 1.2rem; color: #ffffffcc;">
+    <p>
+      تأثير <strong style="color:#00e5ff;">الصخور النارية والمتحولة</strong> على <strong style="color:#a0e9ff;">المياه الجوفية</strong> يمكن أن يكون كبيرًا، حيث يؤثر على جودة المياه وتدفقها.
+    </p>
+    <p>
+      لذلك، من المهم دراسة هذه الصخور لفهم تأثيراتها بشكل دقيق وضمان الاستخدام <strong style="color:#00e5ff;">الآمن والفعال</strong> للمياه الجوفية في مختلف التطبيقات.
+    </p>
+  </div>
+</details>
+
+<details>
+  <summary>توصيات</summary>
+  <div style="padding-top: 15px; line-height: 2; font-size: 1.2rem; color: #ffffffcc;">
+    <ul style="margin-right: 20px;">
+      <li><strong style="color:#a0e9ff;">دراسة الصخور:</strong> يجب دراسة الصخور النارية والمتحولة لفهم تأثيرها على المياه الجوفية.</li>
+      <li><strong style="color:#a0e9ff;">مراقبة جودة المياه:</strong> يجب مراقبة جودة المياه الجوفية بانتظام لضمان سلامتها.</li>
+      <li><strong style="color:#a0e9ff;">تطوير استراتيجيات إدارة المياه:</strong> يجب تطوير استراتيجيات إدارة المياه التي تأخذ في الاعتبار تأثير الصخور النارية والمتحولة على المياه الجوفية.</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary>خاتمة</summary>
+  <div style="padding-top: 15px; line-height: 2; font-size: 1.2rem; color: #ffffffcc;">
+    <p>
+      يُعد <strong style="color:#00e5ff;">تأثير الصخور النارية والمتحولة</strong> على <strong style="color:#a0e9ff;">المياه الجوفية</strong> موضوعًا هامًا يستحق الدراسة بعناية.
+    </p>
+    <p>
+      من خلال الفهم العميق لهذه التأثيرات، يمكننا ضمان <strong style="color:#00e5ff;">الاستخدام الآمن والفعال</strong> للمياه الجوفية، مما يساهم في استدامة هذا المورد الحيوي للأجيال القادمة.
+    </p>
+  </div>
+</details>
+
+
+<div style="margin-top: 30px; text-align: center;">
+  <h2 style="color: cornflowerblue; margin-bottom: 10px;">استمع إلى الشرح الصوتي:</h2>
+  <audio controls style="width: 100%; max-width: 600px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);" controlsList="nodownload">
+    <source src="C:\laibarary\ali\seminar\audio\fatima.m4a" type="audio/aac">
+    متصفحك لا يدعم تشغيل الصوت.
+  </audio>
+</div>
+
+    <!-- يمكنك إضافة أقسام أخرى هنا بنفس طريقة details -->
+  </div>
+
+  <div class="buttons-container">
+    <a href="C:\laibarary\ali\seminar\topics.html">الرجوع للموضوعات</a>
+    <a class="back-btn" href="C:\laibarary\ali\seminar\index.html">العودة إلى أقسام البرنامج</a>
+    
+    <a href="audio/topic.mp3" download>تحميل الملف الصوتي</a>
+  </div>
+
+  <script>
+    function downloadPDF() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      html2canvas(document.querySelector("#pdf-content"), {scale: 2}).then(canvas => {
+        const imgData = canvas.toDataURL("image/png");
+        const imgProps= doc.getImageProperties(imgData);
+        const pdfWidth = doc.internal.pageSize.getWidth();
+        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+        doc.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+        doc.save("topic.pdf");
+      });
+    }
+  </script>
+</body>
+</html>

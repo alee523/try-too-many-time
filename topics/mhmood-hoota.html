@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>عنوان الموضوع</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+      color: white;
+      min-height: 100vh;
+      padding-bottom: 180px;
+    }
+    .overlay {
+      position: fixed;
+      top: 0; right: 0; bottom: 0; left: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+    }
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+      z-index: 1;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      color: #a0e9ff;
+      text-shadow: 0 0 15px #ffffff99;
+      animation: slideIn 1.2s ease-out forwards;
+    }
+    .content {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 20px;
+      position: relative;
+      z-index: 1;
+    }
+    details {
+      background: rgba(0, 188, 212, 0.05);
+      margin-bottom: 20px;
+      border-radius: 12px;
+      padding: 15px;
+      cursor: pointer;
+      border: 1px solid #00bcd4;
+    }
+    summary {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #00e5ff;
+      text-shadow: 0 0 5px #00e5ff66;
+    }
+    .buttons-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      padding: 30px 15px;
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 999;
+    }
+    .buttons-container a,
+    .buttons-container button {
+      background: #00bcd4;
+      color: white;
+      padding: 10px 20px 10px 10px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .buttons-container a:hover,
+    .buttons-container button:hover {
+      background: #0097a7;
+      transform: scale(1.05);
+    }
+    .back-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #00bcd4;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 1rem;
+      z-index: 1000;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+      transition: background 0.3s, transform 0.3s;
+    }
+    .back-btn:hover {
+      background: #0097a7;
+      transform: scale(1.05);
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+  <header>
+    <h1>عنوان الموضوع هنا</h1>
+  </header>
+
+  <div class="content" id="pdf-content">
+    <!-- أقسام الموضوع توضع هنا باستخدام <details> -->
+<details>
+  <summary>مقدمة</summary>
+  <div style="padding-top: 15px; line-height: 2; font-size: 1.2rem; color: #ffffffcc;">
+    <p>
+      تُعد <strong style="color:#00e5ff;">العلاقة بين الطبقات الجيولوجية والمياه الجوفية</strong> من المواضيع الأساسية في 
+      <strong style="color:#a0e9ff;">الهيدروجيولوجيا (هندسة المياه الجوفية)</strong>، 
+      حيث تلعب الخصائص الجيولوجية للطبقات دورًا حاسمًا في تحديد <strong>حركة</strong> و<strong>تخزين</strong> و<strong>توفر</strong> المياه الجوفية.
+    </p>
+  </div>
+</details>
+
+
+<details>
+  <summary>التطبيقات الهندسية لفهم العلاقة بين الطبقات الجيولوجية والمياه الجوفية</summary>
+  <div style="padding-top: 15px; line-height: 2; font-size: 1.2rem; color: #ffffffcc;">
+
+    <h3 style="color:#00e5ff; margin-bottom: 10px;">1. تحديد الطبقات الحاملة للمياه (Aquifers) والطبقات العازلة (Aquitards)</h3>
+    <ul style="margin-bottom: 20px;">
+      <li>
+        <strong style="color:#a0e9ff;">التطبيق الهندسي:</strong>
+        <ul>
+          <li>استخدام <strong>الدراسات الجيوفيزيائية</strong> (مثل السيزمية أو المقاومة الكهربائية) لتحديد الطبقات المسامية (مثل الرمل أو الحصى) التي تخزن المياه (Aquifers)، والطبقات غير المنفذة (مثل الطين أو الصخور الصلبة) التي تمنع تسرب المياه (Aquitards).</li>
+          <li>تصميم آبار الضخ بناءً على عمق ونفاذية الطبقات الحاملة للمياه.</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h3 style="color:#00e5ff; margin-bottom: 10px;">2. نمذجة تدفق المياه الجوفية (Groundwater Flow Modeling)</h3>
+    <ul style="margin-bottom: 20px;">
+      <li>
+        <strong style="color:#a0e9ff;">التطبيق الهندسي:</strong>
+        <ul>
+          <li>
+            استخدام برامج مثل <strong>MODFLOW</strong> لمحاكاة حركة المياه الجوفية عبر الطبقات الجيولوجية، مع مراعاة:
+            <ul>
+              <li><strong>النفاذية (Permeability)</strong> و<strong>التوصيل الهيدروليكي (Hydraulic Conductivity)</strong> للطبقات.</li>
+              <li>تأثير التغيرات في الطبقات (مثل الصدوع أو الطيات) على اتجاه التدفق.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>تطبيقات:</strong>
+            <ul>
+              <li>التنبؤ بتأثير الضخ على منسوب المياه الجوفية.</li>
+              <li>إدارة موارد المياه في المناطق الجافة.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <!-- 3 -->
+    <h3 style="color:#00e5ff; margin-bottom: 10px;">3. تقييم التلوث وحماية الخزانات الجوفية</h3>
+    <ul style="margin-bottom: 20px;">
+      <li>
+        <strong style="color:#a0e9ff;">التطبيق الهندسي:</strong>
+        <ul>
+          <li>تحليل <strong>خصائص الطبقات الجيولوجية</strong> لتحديد مدى تأثرها بالتلوث:
+            <ul>
+              <li>الطبقات الرملية: تسمح بانتشار الملوثات بسرعة.</li>
+              <li>الطبقات الطينية: تعمل كحاجز طبيعي ضد التلوث.</li>
+            </ul>
+          </li>
+          <li>تصميم <strong>مناطق حماية الآبار</strong> (Wellhead Protection Areas) بناءً على سرعة تدفق المياه في الطبقات.</li>
+        </ul>
+      </li>
+    </ul>
+
+    <!-- 4 -->
+    <h3 style="color:#00e5ff; margin-bottom: 10px;">4. حفر الآبار وتصميمها (Well Design)</h3>
+    <ul style="margin-bottom: 20px;">
+      <li>
+        <strong style="color:#a0e9ff;">التطبيق الهندسي:</strong>
+        <ul>
+          <li>اختيار مواقع الآبار بناءً على:
+            <ul>
+              <li>سمك الطبقة الحاملة للمياه (مثل طبقة الحصى السميكة).</li>
+              <li>عمق منسوب المياه الجوفية أو ضغط المياه في الطبقات المحصورة.</li>
+            </ul>
+          </li>
+          <li>استخدام <strong>مضخات ذات كفاءة عالية</strong> تتوافق مع نوعية الطبقات.</li>
+        </ul>
+      </li>
+    </ul>
+
+    <!-- 5 -->
+    <h3 style="color:#00e5ff; margin-bottom: 10px;">5. تخزين المياه الجوفية الاصطناعي (Managed Aquifer Recharge)</h3>
+    <ul style="margin-bottom: 20px;">
+      <li>
+        <strong style="color:#a0e9ff;">التطبيق الهندسي:</strong>
+        <ul>
+          <li>حقن المياه الفائضة (مثل مياه الأمطار أو المعالجة) في طبقات مختارة.</li>
+          <li>دراسة <strong>قابلية الطبقات للتخزين</strong> وعدم وجود شوائب تعيق الحقن.</li>
+        </ul>
+      </li>
+    </ul>
+
+    <!-- 6 -->
+    <h3 style="color:#00e5ff; margin-bottom: 10px;">6. التحليل الجيوتقني لاستقرار المنشآت</h3>
+    <ul>
+      <li>
+        <strong style="color:#a0e9ff;">التطبيق الهندسي:</strong>
+        <ul>
+          <li>تقييم تأثير المياه الجوفية على <strong>الطبقات الحاملة للأساسات</strong>:
+            <ul>
+              <li>ارتفاع منسوب المياه قد يسبب انهيار التربة (Liquefaction) في الطبقات الرملية.</li>
+              <li>تحليل ضغط المياه المسامية (Pore Water Pressure) في الطبقات الطينية.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <!-- 7 -->
+    <h3 style="color:#00e5ff; margin-bottom: 10px;">7. الاستكشاف الجيولوجي للينابيع والفواصل (Fractures)</h3>
+    <ul style="margin-bottom: 20px;">
+      <li>
+        <strong style="color:#a0e9ff;">التطبيق الهندسي:</strong>
+        <ul>
+          <li>تحديد <strong>الطبقات المتصدعة (Fractured Aquifers)</strong> في الصخور الصلبة مثل الجرانيت، والتي تسمح بتدفق المياه عبر الشقوق.</li>
+          <li>استخدام تقنيات <strong>التصوير الجيوفيزيائي</strong> للكشف عن الفواصل المخزنة للمياه.</li>
+        </ul>
+      </li>
+    </ul>
+
+    <!-- 8 -->
+    <h3 style="color:#00e5ff; margin-bottom: 10px;">8. إدارة المياه في المناطق الساحلية (Saltwater Intrusion)</h3>
+    <ul style="margin-bottom: 20px;">
+      <li>
+        <strong style="color:#a0e9ff;">التطبيق الهندسي:</strong>
+        <ul>
+          <li>منع تسرب المياه المالحة إلى الطبقات العذبة عبر:
+            <ul>
+              <li>دراسة <strong>توازن كثافة المياه</strong> في الطبقات (علاقة Ghyben-Herzberg).</li>
+              <li>بناء <strong>حواجز هيدروليكية</strong> مثل آبار الحقن (Injection Wells).</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+  </div>
+</details>
+
+<details>
+  <summary>الخلاصة</summary>
+  <div style="padding-top: 15px; line-height: 2; font-size: 1.2rem; color: #ffffffcc;">
+    <p>
+      فهم <strong style="color:#00e5ff;">العلاقة بين الطبقات الجيولوجية والمياه الجوفية</strong> يتطلب تكامل المعرفة الجيولوجية مع الأدوات الهندسية مثل <strong>النمذجة الهيدرولوجية</strong> و<strong>الاستشعار عن بعد</strong>.
+    </p>
+    <p>
+      هذه التطبيقات ضرورية لـ:
+    </p>
+    <ul>
+      <li><strong>استدامة الموارد المائية</strong>.</li>
+      <li><strong>منع الكوارث البيئية</strong> (مثل هبوط التربة أو التلوث).</li>
+      <li><strong>التخطيط العمراني</strong> في المناطق المعتمدة على المياه الجوفية.</li>
+    </ul>
+  </div>
+</details>
+
+    <!-- أضف أقسام أخرى بنفس الطريقة -->
+  </div>
+
+
+
+<div style="margin-top: 30px; text-align: center;">
+  <h2 style="
+    color: #e0ffff;
+    font-size: 1.8rem;
+    text-shadow: 0 0 8px #00e5ff88;
+    margin-bottom: 25px;
+    font-weight: bold;
+  ">
+    الاستماع إلى الشرح الصوتي
+  </h2>
+  
+  <div style="margin-bottom: 25px;">
+    <h3 style="color: #a0e9ff; font-size: 1.2rem; margin-bottom: 10px;">الصوت الأول: محمود</h3>
+    <audio controls style="width: 100%; max-width: 600px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);" controlsList="nodownload">
+      <source src="C:\laibarary\ali\seminar\audio\Mahmood.opus" type="audio/ogg">
+      متصفحك لا يدعم تشغيل الصوت.
+    </audio>
+  </div>
+  
+  <div>
+    <h3 style="color: #a0e9ff; font-size: 1.2rem; margin-bottom: 10px;">الصوت الثاني: محمود 1</h3>
+    <audio controls style="width: 100%; max-width: 600px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);" controlsList="nodownload">
+      <source src="C:\laibarary\ali\seminar\audio\Mahmood1.opus" type="audio/ogg">
+      متصفحك لا يدعم تشغيل الصوت.
+    </audio>
+  </div>
+</div>
+
+
+
+
+  <div class="buttons-container">
+    <a href="C:\laibarary\ali\seminar\topics.html">الرجوع للموضوعات</a>
+    <a class="back-btn" href="C:\laibarary\ali\seminar\index.html">العودة إلى أقسام البرنامج</a>
+    
+    <a href="C:\laibarary\ali\seminar\audio\Mahmood.opus" download>تحميل الملف الصوتي</a>
+    <a href="C:\laibarary\ali\seminar\audio\Mahmood1.opus" download>تحميل الملف الصوتي</a>
+  </div>
+
+  <script>
+    function downloadPDF() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      html2canvas(document.querySelector("#pdf-content"), {scale: 2}).then(canvas => {
+        const imgData = canvas.toDataURL("image/png");
+        const imgProps= doc.getImageProperties(imgData);
+        const pdfWidth = doc.internal.pageSize.getWidth();
+        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+        doc.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+        doc.save("topic.pdf");
+      });
+    }
+  </script>
+</body>
+</html>

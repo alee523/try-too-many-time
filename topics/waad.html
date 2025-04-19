@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>طرق دراسة العلاقة بين الطبقات الجيولوجية والمياه الجوفية</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+      color: white;
+      min-height: 100vh;
+      padding-bottom: 180px;
+    }
+    .overlay {
+      position: fixed;
+      top: 0; right: 0; bottom: 0; left: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+    }
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+      z-index: 1;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      color: #a0e9ff;
+      text-shadow: 0 0 15px #ffffff99;
+      animation: slideIn 1.2s ease-out forwards;
+    }
+    .content {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 20px;
+      position: relative;
+      z-index: 1;
+    }
+    details {
+      background: rgba(0, 188, 212, 0.05);
+      margin-bottom: 20px;
+      border-radius: 12px;
+      padding: 15px;
+      cursor: pointer;
+      border: 1px solid #00bcd4;
+    }
+    summary {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #00e5ff;
+      text-shadow: 0 0 5px #00e5ff66;
+    }
+    .buttons-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      padding: 30px 15px;
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 999;
+    }
+    .buttons-container a,
+    .buttons-container button {
+      background: #00bcd4;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .buttons-container a:hover,
+    .buttons-container button:hover {
+      background: #0097a7;
+      transform: scale(1.05);
+    }
+    .back-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #00bcd4;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 1rem;
+      z-index: 1000;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+      transition: background 0.3s, transform 0.3s;
+    }
+    .back-btn:hover {
+      background: #0097a7;
+      transform: scale(1.05);
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+  <header>
+    <h1>طرق دراسة العلاقة بين الطبقات الجيولوجية والمياه الجوفية</h1>
+  </header>
+
+  <div class="content" id="pdf-content">
+  <details>
+    <summary>المقدمة</summary>
+    <div style="padding-top: 15px; line-height: 2; font-size: 1.2rem; color: #ffffffcc;">
+      <p>سيتناول هذا السمنار الأساليب المختلفة التي يستخدمها الجيولوجيون والهيدروجيولوجيون لفهم العلاقة بين التكوينات الجيولوجية وحركة وتوزيع المياه الجوفية.</p>
+    </div>
+  </details>
+  
+  <details>
+    <summary>تعريف الطبقات الجيولوجية</summary>
+    <div style="padding-top: 15px; line-height: 2; font-size: 1.2rem; color: #ffffffcc;">
+      <p>الطبقات الجيولوجية هي تكوينات صخرية مرتبة فوق بعضها البعض نتيجة عمليات جيولوجية طبيعية حدثت عبر ملايين السنين، مثل الترسيب، النشاط البركاني، أو التحول الصخري.</p>
+    </div>
+  </details>
+  
+  <details>
+    <summary>أولاً: الطرق الجيولوجية التقليدية</summary>
+    <div style="padding-top: 15px; line-height: 2; font-size: 1.2rem; color: #ffffffcc;">
+      <p>تعتمد على دراسة خصائص الصخور والطبقات الأرضية من حيث نوعها، سمكها، مساميتها ونفاذيتها.</p>
+      <ul style="margin-right: 20px; padding-right: 10px; list-style-type: circle;">
+        <li>الرصد الميداني: فحص التكوينات المكشوفة على السطح وتحليلها.</li>
+        <li>إنشاء المقاطع الجيولوجية: لرؤية تتابع الطبقات وتحديد الطبقات الحاملة للمياه (Aquifers).</li>
+        <li>الخرائط الجيولوجية: تساعد على تحديد امتداد الطبقات واتجاه ميلها.</li>
+      </ul>
+    </div>
+  </details>
+  
+  <details>
+    <summary>ثانياً: الطرق الجيوفيزيائية</summary>
+    <div style="padding-top: 15px; line-height: 2; font-size: 1.2rem; color: #ffffffcc;">
+      <p>تستخدم أدوات وتقنيات تقيس خصائص فيزيائية للصخور لتحديد مواقع المياه الجوفية دون الحاجة إلى الحفر المكلف.</p>
+      <ul style="margin-right: 20px; padding-right: 10px; list-style-type: circle;">
+        <li>المقاومة الكهربائية (Resistivity): تقيس مقاومة التربة والصخور للتيار الكهربائي. المياه تقلل المقاومة، مما يسهل تحديد مواقعها.</li>
+        <li>الطرق الزلزالية (Seismic): تعتمد على سرعة انتشار الموجات الزلزالية عبر الطبقات، وهي مفيدة لمعرفة تركيب الطبقات.</li>
+        <li>الطرق المغناطيسية والجاذبية: تستخدم لتحديد بنية باطن الأرض ومعرفة مناطق التراكم الجوفي.</li>
+      </ul>
+    </div>
+  </details>
+  
+  <details>
+    <summary>ثالثاً: الطرق الهيدروجيولوجية</summary>
+    <div style="padding-top: 15px; line-height: 2; font-size: 1.2rem; color: #ffffffcc;">
+      <p>تُستخدم لتحليل سلوك المياه الجوفية في باطن الأرض من حيث الكمية والاتجاه وجودة المياه.</p>
+      <ul style="margin-right: 20px; padding-right: 10px; list-style-type: circle;">
+        <li>حفر الآبار الاستكشافية: لدراسة الطبقات ميدانياً وأخذ عينات.</li>
+        <li>اختبارات الضخ (Pumping Tests): لتحديد إنتاجية الخزانات الجوفية ومعدلات تغذيتها.</li>
+        <li>تحليل عينات المياه: لفحص الخصائص الكيميائية والفيزيائية وتحديد صلاحية المياه.</li>
+      </ul>
+    </div>
+  </details>
+  
+  <details>
+    <summary>رابعاً: الطرق الحديثة والتقنية</summary>
+    <div style="padding-top: 15px; line-height: 2; font-size: 1.2rem; color: #ffffffcc;">
+      <p>تدمج بين المعلومات الجيولوجية والجغرافية باستخدام التكنولوجيا.</p>
+      <ul style="margin-right: 20px; padding-right: 10px; list-style-type: circle;">
+        <li>نظم المعلومات الجغرافية (GIS): لدمج البيانات من مختلف المصادر وتحليلها مكانياً.</li>
+        <li>الاستشعار عن بعد (Remote Sensing): استخدام صور الأقمار الصناعية لرصد التغيرات في سطح الأرض والمياه.</li>
+        <li>النماذج العددية للمياه الجوفية: لتوقع حركة المياه وكمية المخزون عبر الزمن.</li>
+      </ul>
+    </div>
+  </details>
+  
+  <details>
+  <summary>الأهداف</summary>
+  <div style="padding-top: 15px; line-height: 2; font-size: 1.2rem; color: #ffffffcc;">
+    <ul style="margin-right: 20px; padding-right: 10px; list-style-type: decimal;">
+      <li>فهم العلاقة بين الطبقات الجيولوجية والمياه الجوفية من خلال التعرف على كيف تؤثر خصائص الطبقات الأرضية في تخزين وحركة المياه تحت السطح.</li>
+      <li>التعرف على طرق دراسة هذه العلاقة من خلال استعراض الطرق الجيولوجية، الجيوفيزيائية، الهيدروجيولوجية، والتقنيات الحديثة.</li>
+      <li>توضيح أهمية معرفة خصائص الطبقات الجيولوجية في استكشاف الموارد المائية وتحديد مواقع الحفر المثلى.</li>
+      <li>تعزيز الوعي بأهمية حماية المياه الجوفية وتطبيق الدراسات العلمية في إدارتها بشكل مستدام.</li>
+      <li>الربط بين الجيولوجيا والهيدرولوجيا من أجل تطوير فهم شامل للبيئة تحت السطحية واستخدام الموارد بفعالية.</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary>الخلاصة</summary>
+  <div style="padding-top: 15px; line-height: 2; font-size: 1.2rem; color: #ffffffcc;">
+    <p>دراسة العلاقة بين الطبقات الجيولوجية والمياه الجوفية تتطلب دمج عدة طرق للحصول على معلومات دقيقة وموثوقة، مما يسهم في حسن استغلال الموارد المائية وحمايتها من التلوث أو الاستنزاف.</p>
+  </div>
+</details>
+
+
+<details>
+  <summary>صور توضيحية </summary>
+  <div style="padding-top: 15px; line-height: 2; font-size: 1.2rem; color: #ffffffcc; text-align: center;">
+    <p>الصور التالية تُظهر جوانب مختلفة من دراسة العلاقة بين الطبقات الجيولوجية والمياه الجوفية:</p>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 20px;">
+      <img src="C:\laibarary\ali\seminar\image\waad\IMG-20250419-WA0004.jpg" alt="صورة توضيحية 1" style="max-width: 300px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.5);">
+      <img src="C:\laibarary\ali\seminar\image\waad\IMG-20250419-WA0003.jpg" alt="صورة توضيحية 2" style="max-width: 300px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.5);">
+      <img src="C:\laibarary\ali\seminar\image\waad\IMG-20250419-WA0002.jpg" alt="صورة توضيحية 3" style="max-width: 300px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.5);">
+    </div>
+  </div>
+</details>
+</div>
+
+<div style="text-align: center; margin-top: 40px;">
+  <div style="margin-bottom: 25px;">
+    <h3 style="color: #a0e9ff; font-size: 1.2rem; margin-bottom: 10px;">الصوت الأول: وعد</h3>
+    <audio controls style="width: 100%; max-width: 600px; margin: 0 auto; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);" controlsList="nodownload">
+      <source src="C:\laibarary\ali\seminar\audio\waad.opus" type="audio/ogg">
+      متصفحك لا يدعم تشغيل الصوت.
+    </audio>
+  </div>
+  
+  <div>
+    <h3 style="color: #a0e9ff; font-size: 1.2rem; margin-bottom: 10px;">الصوت الثاني: وعد 1</h3>
+    <audio controls style="width: 100%; max-width: 600px; margin: 0 auto; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);" controlsList="nodownload">
+      <source src="C:\laibarary\ali\seminar\audio\wadd1.opus" type="audio/ogg">
+      متصفحك لا يدعم تشغيل الصوت.
+    </audio>
+  </div>
+</div>
+  
+  
+
+
+
+  <div class="buttons-container">
+    <a href="C:\laibarary\ali\seminar\topics.html">الرجوع للموضوعات</a>
+    <a class="back-btn" href="C:\laibarary\ali\seminar\index.html">العودة إلى أقسام البرنامج</a>
+    
+    <a href="C:\laibarary\ali\seminar\audio\waad.opus" download>تحميل الملف الصوتي</a>
+    <a href="C:\laibarary\ali\seminar\audio\wadd1.opus" download>تحميل الملف الصوتي</a>
+  </div>
+
+  <script>
+    function downloadPDF() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      html2canvas(document.querySelector("#pdf-content"), {scale: 2}).then(canvas => {
+        const imgData = canvas.toDataURL("image/png");
+        const imgProps = doc.getImageProperties(imgData);
+        const pdfWidth = doc.internal.pageSize.getWidth();
+        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+        doc.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+        doc.save("topic.pdf");
+      });
+    }
+  </script>
+</body>
+</html>

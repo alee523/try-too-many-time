@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>الطبقات الجيولوجية والمياه الجوفية</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>
+    /* نفس التنسيق محفوظ كما هو */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+      color: white;
+      min-height: 100vh;
+      padding-bottom: 180px;
+    }
+    .overlay {
+      position: fixed;
+      top: 0; right: 0; bottom: 0; left: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+    }
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+      z-index: 1;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      color: #a0e9ff;
+      text-shadow: 0 0 15px #ffffff99;
+      animation: slideIn 1.2s ease-out forwards;
+    }
+    .content {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 20px;
+      position: relative;
+      z-index: 1;
+    }
+    details {
+      background: rgba(0, 188, 212, 0.05);
+      margin-bottom: 20px;
+      border-radius: 12px;
+      padding: 15px;
+      cursor: pointer;
+      border: 1px solid #00bcd4;
+    }
+    summary {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #00e5ff;
+      text-shadow: 0 0 5px #00e5ff66;
+    }
+    .buttons-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      padding: 30px 15px;
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 999;
+    }
+    .buttons-container a,
+    .buttons-container button {
+      background: #00bcd4;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .buttons-container a:hover,
+    .buttons-container button:hover {
+      background: #0097a7;
+      transform: scale(1.05);
+    }
+    .back-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #00bcd4;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 1rem;
+      z-index: 1000;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+      transition: background 0.3s, transform 0.3s;
+    }
+    .back-btn:hover {
+      background: #0097a7;
+      transform: scale(1.05);
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+  <header>
+    <h1>الطبقات الجيولوجية والمياه الجوفية</h1>
+  </header>
+
+  <div class="content" id="pdf-content">
+    <details open>
+      <summary>مقدمة</summary>
+      <div style="padding-top: 15px; line-height: 2; font-size: 1.2rem; color: #ffffffcc;">
+        <p>
+          تلعب <strong style="color:#00e5ff;">الطبقات الجيولوجية</strong> دورًا رئيسيًا في تحديد توزيع وتخزين المياه الجوفية. ففهم الخصائص الفيزيائية والمعدنية لهذه الطبقات يساعد في تقييم إمكانيات الخزانات الجوفية، مما يساهم في إدارة موارد المياه بشكل فعّال، خاصة في المناطق القاحلة وشبه القاحلة.
+        </p>
+      </div>
+    </details>
+    
+
+<details>
+  <summary>أهداف السمنار</summary>
+  <div style="padding-top: 15px; line-height: 2; font-size: 1.2rem; color: #ffffffcc;">
+    <ul>
+      <li>فهم تأثير التكوينات الجيولوجية على حركة وتخزين المياه الجوفية.</li>
+      <li>تحديد أنواع الطبقات الصخرية المناسبة لتكوين الخزانات الجوفية.</li>
+      <li>توضيح دور الطبقات غير المنفذة في حماية المياه الجوفية من التلوث.</li>
+    </ul>
+  </div>
+</details>
+
+
+
+<details>
+  <summary>العناصر الرئيسية</summary>
+  <div style="padding-top: 15px; line-height: 2; font-size: 1.2rem; color: #ffffffcc;">
+    <ol style="padding-right: 20px;">
+      <li style="margin-bottom: 15px;">
+        <strong style="color:#00e5ff;">مفهوم المياه الجوفية:</strong><br>
+        هي المياه التي تتسرب من سطح الأرض وتتجمع في الفراغات الموجودة بين حبيبات الصخور أو في الشقوق والكسور داخل التكوينات الصخرية.
+      </li>
+      <li style="margin-bottom: 15px;">
+        <strong style="color:#00e5ff;">الطبقات الجيولوجية وأنواعها:</strong>
+        <ul style="padding-right: 20px; margin-top: 10px;">
+          <li>طبقات منفذة (Permeable): مثل الحجر الرملي والحصى، وتسمح بمرور المياه.</li>
+          <li>طبقات غير منفذة (Impermeable): مثل الطين والطفل، وتمنع تسرب المياه.</li>
+          <li>الطبقات الحاملة للمياه (Aquifers): وهي تكوينات جيولوجية تخزن المياه وتنقلها.</li>
+          <li>الطبقات الحاجزة (Aquitards): تبطئ حركة المياه وتفصل بين الطبقات الحاملة للمياه.</li>
+        </ul>
+      </li>
+      <li style="margin-bottom: 15px;">
+        <strong style="color:#00e5ff;">العلاقة بين الجيولوجيا والهيدروجيولوجيا:</strong><br>
+        توزيع الصخور وتأثير التصدعات والفوالق في حركة المياه الجوفية.<br>
+        كيف تؤثر طبيعة التربة والصخور على معدل تسرب المياه واحتجازها.
+      </li>
+      <li style="margin-bottom: 15px;">
+        <strong style="color:#00e5ff;">تطبيقات عملية:</strong>
+        <ul style="padding-right: 20px; margin-top: 10px;">
+          <li>في حفر الآبار: ضرورة دراسة الطبقات لتحديد العمق الأمثل.</li>
+          <li>في تقييم جودة المياه: الطبقات غير المنفذة تقي من التلوث السطحي.</li>
+          <li>في إدارة المياه: تحديد مواقع الخزانات الجوفية وإعادة تغذيتها.</li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+</details>
+
+<details>
+  <summary>صور توضيحية</summary>
+  <div style="padding-top: 20px;">
+    <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
+      <img src="C:\laibarary\ali\seminar\image\lmia\IMG-20250418-WA0034.jpg" alt="صورة 1" style="max-width: 280px; border-radius: 12px; box-shadow: 0 0 10px #00e5ff99;">
+      <img src="C:\laibarary\ali\seminar\image\lmia\IMG-20250418-WA0033.jpg" alt="صورة 2" style="max-width: 280px; border-radius: 12px; box-shadow: 0 0 10px #00e5ff99;">
+      <img src="C:\laibarary\ali\seminar\image\lmia\IMG-20250418-WA0032.jpg" alt="صورة 3" style="max-width: 280px; border-radius: 12px; box-shadow: 0 0 10px #00e5ff99;">
+    </div>
+  </div>
+</details>
+  </div>
+
+
+<div style="margin-top: 30px; text-align: center;">
+  <h2 style="color: cornflowerblue; margin-bottom: 10px;">استمع إلى الشرح الصوتي:</h2>
+  <audio controls style="width: 100%; max-width: 600px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);" controlsList="nodownload">
+    <source src="C:\laibarary\ali\seminar\audio\ليميا.aac" type="audio/aac">
+    متصفحك لا يدعم تشغيل الصوت.
+  </audio>
+</div>
+  <div class="buttons-container">
+    <a href="C:\laibarary\ali\seminar\topics.html">الرجوع للموضوعات</a>
+    <a class="back-btn" href="C:\laibarary\ali\seminar\index.html">العودة إلى أقسام البرنامج</a>
+    
+    <a href="C:\laibarary\ali\seminar\audio\ليميا.aac" download>تحميل الملف الصوتي</a>
+  </div>
+
+  <script>
+    function downloadPDF() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      html2canvas(document.querySelector("#pdf-content"), {scale: 2}).then(canvas => {
+        const imgData = canvas.toDataURL("image/png");
+        const imgProps= doc.getImageProperties(imgData);
+        const pdfWidth = doc.internal.pageSize.getWidth();
+        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+        doc.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+        doc.save("topic.pdf");
+      });
+    }
+  </script>
+</body>
+</html>

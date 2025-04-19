@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>أهداف السمنار</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+      color: white;
+      min-height: 100vh;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      z-index: 1;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: #c5e1a5;
+      text-shadow: 0 0 15px #ffffff99;
+      animation: slideIn 1.2s ease-out forwards;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 60px auto;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(8px);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      z-index: 1;
+      position: relative;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 25px;
+      color: #e0f2f1;
+      text-shadow: 0 0 10px #ffffff88;
+    }
+
+    ul {
+      list-style: none;
+      padding-right: 20px;
+    }
+
+    li {
+      margin-bottom: 18px;
+    }
+
+    li a {
+      color: #c8e6c9;
+      font-size: 1.2rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+      display: inline-block;
+    }
+
+    li a::before {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      right: 0;
+      width: 0%;
+      height: 2px;
+      background: linear-gradient(90deg, #b2ff59, #ffffff, #b2ff59);
+      box-shadow: 0 0 8px #dcedc8;
+      transition: width 0.4s ease;
+      border-radius: 10px;
+    }
+
+    li a:hover::before {
+      width: 100%;
+    }
+
+    li a:hover {
+      color: #ffffff;
+      text-shadow: 0 0 10px #ffffffaa;
+    }
+
+    /* زر العودة العائم */
+    .back-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #7cb342;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 1rem;
+      z-index: 1000;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .back-btn:hover {
+      background: #558b2f;
+      transform: scale(1.05);
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="overlay"></div>
+
+  <header>
+    <h1>أهداف السمنار</h1>
+  </header>
+
+  <div class="container">
+    <h2>ما نسعى لتحقيقه في هذا السمنار</h2>
+    <ul>
+      <li><a href="#">تسليط الضوء على التحديات المرتبطة بإدارة المياه الجوفية.</a></li>
+      <li><a href="#">مناقشة الحلول المقترحة للتعامل مع الطبقات الجيولوجية المعقدة.</a></li>
+      <li><a href="#">تعزيز الوعي البيئي لدى الطلبة حول أهمية المياه الجوفية كمصدر حيوي.</a></li>
+      <li><a href="#">عرض نتائج البحوث الميدانية والنظرية المتعلقة بالموضوع.</a></li>
+      <li><a href="#">فتح باب النقاش العلمي بين الحضور لتبادل الأفكار والتجارب.</a></li>
+    </ul>
+  </div>
+
+  <a class="back-btn" href="index.html" onclick="sessionStorage.setItem('launchProgram', 'true')">
+    العودة إلى أقسام البرنامج
+  </a>
+
+</body>
+</html>

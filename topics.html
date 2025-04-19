@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>موضوعات السمنار</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+      color: white;
+      min-height: 100vh;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      z-index: 1;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: #a0e9ff;
+      text-shadow: 0 0 15px #ffffff99;
+      animation: slideIn 1.2s ease-out forwards;
+    }
+
+    .content {
+      max-width: 800px;
+      margin: 60px auto;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(8px);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      z-index: 1;
+      position: relative;
+    }
+
+    .content h2 {
+      color: #ffffff;
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 25px;
+      text-shadow: 0 0 10px #00e5ff;
+    }
+
+    ul {
+      list-style: none;
+      padding-right: 20px;
+    }
+
+    li {
+      margin-bottom: 16px;
+    }
+
+    li a {
+      color: #a0e9ff;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      display: inline-block;
+      position: relative;
+    }
+
+    li a::before {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      right: 0;
+      width: 0%;
+      height: 2px;
+      background: linear-gradient(90deg, #a0e9ff, #ffffff, #a0e9ff);
+      transition: width 0.4s ease;
+      border-radius: 10px;
+    }
+
+    li a:hover::before {
+      width: 100%;
+    }
+
+    li a:hover {
+      color: #e0ffff;
+      text-shadow: 0 0 10px #ffffffaa;
+    }
+
+    /* زر العودة العائم */
+    .back-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #00bcd4;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 1rem;
+      z-index: 1000;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .back-btn:hover {
+      background: #0097a7;
+      transform: scale(1.05);
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="overlay"></div>
+
+  <header>
+    <h1>موضوعات السمنار</h1>
+  </header>
+
+  <div class="content">
+    <h2>أبرز الموضوعات التي تم مناقشتها</h2>
+<ul>
+  <li>
+    <a href="#" style="display: block; background: rgba(0, 188, 212, 0.08); padding: 15px; border-radius: 12px; margin-bottom: 20px; color: inherit; text-decoration: none;">
+      <div>
+        <strong style="font-size: 1.2rem;">مقدمة عن الطبقات الجيولوجية والنظام المائي الجوفي</strong>
+        <p style="margin-top: 10px; color: #ffffffcc;">إعداد: زينب ابراهيم</p>
+      </div>
+    </a>
+  </li>
+  <li>
+    <a href="C:\laibarary\ali\seminar\topics\waad.html" style="display: block; background: rgba(0, 188, 212, 0.08); padding: 15px; border-radius: 12px; margin-bottom: 20px; color: inherit; text-decoration: none;">
+      <div>
+        <strong style="font-size: 1.2rem;">أنواع الطبقات الجيولوجية وخصائصها</strong>
+        <p style="margin-top: 10px; color: #ffffffcc;">إعداد: وعد سعد</p>
+      </div>
+    </a>
+  </li>
+  <li>
+    <a href="#" style="display: block; background: rgba(0, 188, 212, 0.08); padding: 15px; border-radius: 12px; margin-bottom: 20px; color: inherit; text-decoration: none;">
+      <div>
+        <strong style="font-size: 1.2rem;">المسامية والنفاذية في الطبقات الجيولوجية</strong>
+        <p style="margin-top: 10px; color: #ffffffcc;">إعداد: محمود محمد</p>
+      </div>
+    </a>
+  </li>
+  <li>
+    <a href="C:\laibarary\ali\seminar\topics\mlaz.html" style="display: block; background: rgba(0, 188, 212, 0.08); padding: 15px; border-radius: 12px; margin-bottom: 20px; color: inherit; text-decoration: none;">
+      <div>
+        <strong style="font-size: 1.2rem;">الخزانات الجوفية وأنواعها</strong>
+        <p style="margin-top: 10px; color: #ffffffcc;">إعداد: ملاذ يوسف</p>
+      </div>
+    </a>
+  </li>
+  <li>
+    <a href="C:\laibarary\ali\seminar\topics\amira.html" style="display: block; background: rgba(0, 188, 212, 0.08); padding: 15px; border-radius: 12px; margin-bottom: 20px; color: inherit; text-decoration: none;">
+      <div>
+        <strong style="font-size: 1.2rem;">الطبقات المانعة للمياه</strong>
+        <p style="margin-top: 10px; color: #ffffffcc;">إعداد: أميرة مصطفى</p>
+      </div>
+    </a>
+  </li>
+  <li>
+    <a href="C:\laibarary\ali\seminar\topics\rzaz.html" style="display: block; background: rgba(0, 188, 212, 0.08); padding: 15px; border-radius: 12px; margin-bottom: 20px; color: inherit; text-decoration: none;">
+      <div>
+        <strong style="font-size: 1.2rem;">تأثير التراكيب الجيولوجية على تدفق المياه الجوفية</strong>
+        <p style="margin-top: 10px; color: #ffffffcc;">إعداد: رزاز محمد</p>
+      </div>
+    </a>
+  </li>
+  <li>
+    <a href="#" style="display: block; background: rgba(0, 188, 212, 0.08); padding: 15px; border-radius: 12px; margin-bottom: 20px; color: inherit; text-decoration: none;">
+      <div>
+        <strong style="font-size: 1.2rem;">دور الصخور الرسوبية في النظام المائي الجوفي</strong>
+        <p style="margin-top: 10px; color: #ffffffcc;">إعداد: مازن حيدر</p>
+      </div>
+    </a>
+  </li>
+  <li>
+    <a href="C:\laibarary\ali\seminar\topics\fatima.html" style="display: block; background: rgba(0, 188, 212, 0.08); padding: 15px; border-radius: 12px; margin-bottom: 20px; color: inherit; text-decoration: none;">
+      <div>
+        <strong style="font-size: 1.2rem;">تأثير الصخور النارية والمتحولة على المياه الجوفية</strong>
+        <p style="margin-top: 10px; color: #ffffffcc;">إعداد: فاطمة حسن</p>
+      </div>
+    </a>
+  </li>
+  <li>
+    <a href="#" style="display: block; background: rgba(0, 188, 212, 0.08); padding: 15px; border-radius: 12px; margin-bottom: 20px; color: inherit; text-decoration: none;">
+      <div>
+        <strong style="font-size: 1.2rem;">التفاعلات الكيميائية بين الطبقات الجيولوجية والمياه الجوفية</strong>
+        <p style="margin-top: 10px; color: #ffffffcc;">إعداد: مضر سعيد</p>
+      </div>
+    </a>
+  </li>
+  <li>
+    <a href="C:\laibarary\ali\seminar\topics\limia.html" style="display: block; background: rgba(0, 188, 212, 0.08); padding: 15px; border-radius: 12px; margin-bottom: 20px; color: inherit; text-decoration: none;">
+      <div>
+        <strong style="font-size: 1.2rem;">طرق دراسة العلاقة بين الطبقات الجيولوجية والمياه الجوفية</strong>
+        <p style="margin-top: 10px; color: #ffffffcc;">إعداد: لمياء كبسور</p>
+      </div>
+    </a>
+  </li>
+  <li>
+    <a href="C:\laibarary\ali\seminar\topics\mhmood-hoota.html" style="display: block; background: rgba(0, 188, 212, 0.08); padding: 15px; border-radius: 12px; margin-bottom: 20px; color: inherit; text-decoration: none;">
+      <div>
+        <strong style="font-size: 1.2rem;">التطبيقات الهندسية لفهم العلاقة بين الطبقات الجيولوجية والمياه الجوفية</strong>
+        <p style="margin-top: 10px; color: #ffffffcc;">إعداد: محمود (حوتة)</p>
+      </div>
+    </a>
+  </li>
+  <li>
+    <a href="C:\laibarary\ali\seminar\topics\ali_hafiz_topic.html" style="display: block; background: rgba(0, 188, 212, 0.08); padding: 15px; border-radius: 12px; margin-bottom: 20px; color: inherit; text-decoration: none;">
+      <div>
+        <strong style="font-size: 1.2rem;">التحديات والحلول في إدارة المياه الجوفية في الطبقات الجيولوجية المعقدة</strong>
+        <p style="margin-top: 10px; color: #ffffffcc;">إعداد: علي حافظ</p>
+      </div>
+    </a>
+  </li>
+</ul>
+  </div>
+
+  <a class="back-btn" href="index.html" onclick="sessionStorage.setItem('launchProgram', 'true')">
+    العودة إلى أقسام البرنامج
+  </a>
+
+</body>
+</html>
